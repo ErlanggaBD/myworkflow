@@ -20,12 +20,17 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        /* Custom scrollbar for code editor */
+        #sourcecode-output::-webkit-scrollbar { width: 8px; height: 8px; }
+        #sourcecode-output::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
     </style>
 </head>
 <body class="text-gray-800 antialiased h-screen flex flex-col">
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
-    <script id="app-data" type="application/json">{"shifts":[{"id":1791978938244,"date":"2026-10-14","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1791979048473,"date":"2026-10-14","status":"WFO","start":"09:00","end":"21:00","durationMs":43200000}],"tasks":[{"id":1791979140673,"date":"2026-10-14","time":"17:00","title":"Update Desktop App ATG & ngoding kontroller hardware ATG","desc":"pembaruan dan perbaikan desktop app dan firmware motor ATG versi 6.1 dan pengkodean controller UDP","github":"","file":null,"photo":null}],"todos":[{"id":1791979015582,"date":"2026-10-14","title":"Instalasi joystick & tutor software ATG untuk operator di metrolog","start":"10:00","end":"15:00"}]}</script>
+    <script id="app-data" type="application/json">
+    {"shifts":[{"id":1791979181226,"date":"2026-10-14","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1791979275037,"date":"2026-10-14","status":"WFO","start":"10:00","end":"17:00","durationMs":25200000}],"tasks":[{"id":1791979316656,"date":"2026-10-14","time":"10:00","title":"Update Desktop App ATG & ngoding kontroller hardware ATG","desc":"perbaikan dan pembaruan Desktop App ATG versi 6.1 dan pengkodean kontroler UDP ATG arduino nano","github":"","file":null,"photo":null}],"todos":[{"id":1791979224915,"date":"2026-10-14","title":"Instalasi joystick & tutor software ATG untuk operator di metrolog","start":"10:00","end":"22:03"}]}
+    </script>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-20">
@@ -36,7 +41,7 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">18.59.01</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">19.02.10</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
                         <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
@@ -66,7 +71,7 @@
                         </div>
                         <div class="mt-4 md:mt-0 flex flex-col bg-white/20 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/30 text-center">
                             <p class="text-xs text-blue-100 uppercase tracking-wider font-semibold mb-1">Total Jam Tercatat</p>
-                            <p id="public-total-hours" class="font-bold text-2xl text-white">19 Jam 0 Menit</p>
+                            <p id="public-total-hours" class="font-bold text-2xl text-white">14 Jam 0 Menit</p>
                         </div>
                     </div>
                     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl"></div>
@@ -83,8 +88,8 @@
                     <li class="mb-5 ml-6 relative">
                         <span class="absolute flex items-center justify-center w-4 h-4 rounded-full -left-[33px] ring-4 ring-white bg-green-500"></span>
                         <h3 class="font-bold text-gray-900 text-sm">WFO</h3>
-                        <time class="block mb-1 text-xs font-normal leading-none text-gray-500"><i class="far fa-clock mr-1"></i> 09:00 - 21:00</time>
-                        <p class="text-xs text-gray-500">Durasi: 12 Jam 0 Menit</p>
+                        <time class="block mb-1 text-xs font-normal leading-none text-gray-500"><i class="far fa-clock mr-1"></i> 10:00 - 17:00</time>
+                        <p class="text-xs text-gray-500">Durasi: 7 Jam 0 Menit</p>
                     </li>
                 
                     <li class="mb-5 ml-6 relative">
@@ -107,11 +112,11 @@
                             <div id="public-task-container" class="divide-y divide-gray-100">
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
-                    <div class="flex items-start mb-1 pr-8">
-                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>17:00</span>
+                    <div class="flex items-start mb-1 pr-14">
+                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">Update Desktop App ATG &amp; ngoding kontroller hardware ATG</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">pembaruan dan perbaikan desktop app dan firmware motor ATG versi 6.1 dan pengkodean controller UDP</p>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">perbaikan dan pembaruan Desktop App ATG versi 6.1 dan pengkodean kontroler UDP ATG arduino nano</p>
                     <div class="flex flex-wrap gap-2 ml-[4.5rem]">
                         
                         
@@ -129,7 +134,7 @@
                             </div>
                             <div id="public-todo-container" class="divide-y divide-gray-100">
                 <div class="p-4 hover:bg-indigo-50/50 transition-colors border-b border-gray-100 last:border-0 flex items-start">
-                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00 - 15:00</span>
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00 - 22:03</span>
                     <h3 class="text-sm font-semibold text-gray-800 mt-0.5">Instalasi joystick &amp; tutor software ATG untuk operator di metrolog</h3>
                 </div>
             </div>
@@ -149,8 +154,10 @@
                         <input type="date" id="global-date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 font-semibold">
                     </div>
 
-                    <!-- TOMBOL COPY KE CLIPBOARD -->
-                    <button id="btn-export-html" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center relative overflow-hidden group"><i class="fas fa-spinner fa-spin mr-2"></i> Memproses...</button>
+                    <!-- Tombol Manual Generate Code -->
+                    <button id="btn-show-code" class="w-full md:w-auto bg-gray-900 hover:bg-black text-white font-bold py-3 px-6 rounded-xl shadow-sm transition-colors flex items-center justify-center">
+                        <i class="fas fa-code mr-2"></i> Tampilkan Code Manual
+                    </button>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -191,20 +198,20 @@
                                 <ul id="admin-timeline-container" class="space-y-2 text-sm">
                     <li class="flex justify-between bg-white p-2 rounded border border-gray-100 mb-1">
                         <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
-                        <span class="text-gray-500 font-mono">09:00 - 21:00</span>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 font-mono text-xs mr-3">10:00 - 17:00</span>
+                            <button onclick="deleteShift(1791979275037)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                        </div>
                     </li>
                 
                     <li class="flex justify-between bg-white p-2 rounded border border-gray-100 mb-1">
                         <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
-                        <span class="text-gray-500 font-mono">14:00 - 21:00</span>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 font-mono text-xs mr-3">14:00 - 21:00</span>
+                            <button onclick="deleteShift(1791979181226)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                        </div>
                     </li>
                 </ul>
-                            </div>
-
-                            <div class="mt-auto pt-4 border-t border-gray-100">
-                                <button id="btn-clock-out" class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex justify-center items-center shadow-sm">
-                                    <i class="fas fa-flag-checkered mr-2"></i> Cek &amp; Selesaikan Hari Ini
-                                </button>
                             </div>
                         </div>
 
@@ -227,8 +234,8 @@
                                         <input type="time" id="todo-end" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-indigo-500" required="">
                                     </div>
                                 </div>
-                                <button type="submit" class="w-full bg-gray-900 hover:bg-black text-white text-sm font-medium py-2 rounded-lg transition-colors">
-                                    <i class="fas fa-plus mr-1"></i> Simpan Rencana Besok
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2.5 rounded-lg transition-colors">
+                                    <i class="fas fa-save mr-1"></i> Simpan Rencana Besok
                                 </button>
                             </form>
                             
@@ -238,8 +245,8 @@
                 <li class="flex justify-between items-center bg-white p-2 rounded border border-indigo-100 mb-1">
                     <span class="font-medium text-gray-800 truncate pr-2"><i class="fas fa-caret-right text-indigo-400 mr-2"></i>Instalasi joystick &amp; tutor software ATG untuk operator di metrolog</span>
                     <div class="flex items-center shrink-0">
-                        <span class="text-gray-500 font-mono text-xs mr-3">10:00 - 15:00</span>
-                        <button onclick="deleteTodo(1791979015582)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                        <span class="text-gray-500 font-mono text-xs mr-3">10:00 - 22:03</span>
+                        <button onclick="deleteTodo(1791979224915)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
                     </div>
                 </li>
             </ul>
@@ -296,8 +303,8 @@
                                 </div>
                                 
                                 <div class="mt-5 flex justify-end border-t pt-4">
-                                    <button type="submit" id="btn-submit-task" class="bg-gray-900 hover:bg-black text-white font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm">
-                                        Simpan Inputan Pekerjaan
+                                    <button type="submit" id="btn-submit-task" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md">
+                                        <i class="fas fa-save mr-2"></i> Simpan Inputan Pekerjaan
                                     </button>
                                 </div>
                             </form>
@@ -311,15 +318,16 @@
                             <div id="admin-task-container" class="divide-y divide-gray-100">
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
-                        <button onclick="editTask(1791979140673)" class="absolute top-5 right-5 text-gray-400 hover:text-blue-500 p-1">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <div class="absolute top-5 right-5 space-x-2">
+                            <button onclick="editTask(1791979316656)" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteTask(1791979316656)" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+                        </div>
                     
-                    <div class="flex items-start mb-1 pr-8">
-                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>17:00</span>
+                    <div class="flex items-start mb-1 pr-14">
+                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">Update Desktop App ATG &amp; ngoding kontroller hardware ATG</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">pembaruan dan perbaikan desktop app dan firmware motor ATG versi 6.1 dan pengkodean controller UDP</p>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">perbaikan dan pembaruan Desktop App ATG versi 6.1 dan pengkodean kontroler UDP ATG arduino nano</p>
                     <div class="flex flex-wrap gap-2 ml-[4.5rem]">
                         
                         
@@ -334,7 +342,36 @@
         </div>
     </main>
 
-    <!-- Modals -->
+    <!-- ================= MODALS ================= -->
+    
+    <!-- Code Output Modal (POPUP KODE VSCODE) -->
+    <div id="modal-sourcecode" class="fixed inset-0 bg-black/80 z-[70] flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm p-4 opacity-0 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-4xl h-[85vh] flex flex-col transform transition-transform duration-300 scale-95" id="modal-sourcecode-content">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="text-xl font-bold text-white"><i class="fas fa-code text-blue-400 mr-2"></i>Source Code Terupdate</h3>
+                <button id="btn-close-sourcecode" class="text-gray-400 hover:text-white"><i class="fas fa-times text-2xl"></i></button>
+            </div>
+            <p class="text-sm text-gray-400 mb-4 bg-gray-800 p-3 rounded-lg border border-gray-700">
+                <i class="fas fa-info-circle text-blue-400 mr-2"></i><strong>Berhasil Disimpan!</strong> Klik tombol "Copy Code" di bawah, lalu paste (Ctrl+V) langsung menimpa file `index.html` kamu di VS Code.
+            </p>
+            <div class="flex-grow relative bg-gray-950 rounded-xl border border-gray-700 overflow-hidden flex flex-col">
+                <div class="bg-gray-800 px-4 py-2 border-b border-gray-700 flex items-center">
+                    <span class="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500 mr-4"></span>
+                    <span class="text-xs text-gray-400 font-mono">index.html</span>
+                </div>
+                <textarea id="sourcecode-output" class="w-full h-full bg-transparent text-green-400 font-mono text-sm p-4 resize-none focus:outline-none whitespace-pre" readonly=""></textarea>
+            </div>
+            <div class="mt-4 flex space-x-3">
+                <button id="btn-copy-sourcecode" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition-colors flex justify-center items-center shadow-lg"><i class="fas fa-copy mr-2"></i> Copy Code</button>
+                <button id="btn-done-sourcecode" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3.5 px-8 rounded-xl transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Login Modal -->
     <div id="modal-login" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm opacity-0 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 transform transition-transform duration-300 scale-95" id="modal-login-content">
@@ -357,34 +394,10 @@
         </div>
     </div>
 
-    <!-- Report Modal -->
-    <div id="modal-report" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4 transform scale-95 transition-transform duration-300" id="modal-report-content">
-            <div class="mb-6">
-                <div class="flex items-center text-amber-500 mb-4">
-                    <i class="fas fa-clock text-3xl mr-3"></i>
-                    <h3 class="text-xl font-bold text-gray-900">Jam Kerja Belum 7 Jam</h3>
-                </div>
-                <p class="text-sm text-gray-600" id="report-modal-desc">Total jam kerja pada hari ini tercatat kurang dari 7 jam. Wajib mengisi laporan.</p>
-            </div>
-            <div class="space-y-4">
-                <textarea id="eod-report-text" rows="4" placeholder="Jelaskan alasan selesai lebih awal / progres hari ini..." class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-amber-500 focus:border-amber-500 block p-4 shadow-inner" required=""></textarea>
-                <div class="flex space-x-3 pt-2">
-                    <button id="btn-submit-report" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 rounded-xl transition-colors">
-                        Kirim Laporan &amp; Selesai
-                    </button>
-                    <button id="btn-cancel-report" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-3 px-6 rounded-xl transition-colors">
-                        Batal
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg">
+    <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none translate-y-20 opacity-0">
         <i id="toast-icon" class="fas fa-check-circle text-green-400 mr-3 text-lg"></i>
-        <span id="toast-msg" class="font-medium text-sm">Pekerjaan disimpan</span>
+        <span id="toast-msg" class="font-medium text-sm">Code dicopy! Silakan buka VS Code dan Ctrl+V</span>
     </div>
 
     <script>
@@ -395,7 +408,7 @@
             initialData = JSON.parse(dataStoreEl.textContent.trim() || '{"shifts":[],"tasks":[],"todos":[]}');
             if(!initialData.todos) initialData.todos = [];
         } catch(e) {
-            console.error("Gagal memuat data dari source code", e);
+            console.error("Gagal memuat data", e);
         }
 
         const getTodayString = () => new Date().toISOString().split('T')[0];
@@ -414,17 +427,8 @@
         const checkAutoWFO = () => {
             const today = getTodayString();
             const hasShiftToday = state.shifts.some(s => s.date === today);
-            
             if (!hasShiftToday) {
-                state.shifts.push({
-                    id: Date.now(),
-                    date: today,
-                    status: 'WFO',
-                    start: '14:00',
-                    end: '21:00',
-                    durationMs: 7 * 60 * 60 * 1000
-                });
-                console.log("Auto-WFO 14:00-21:00 dibuat untuk hari ini.");
+                state.shifts.push({ id: Date.now(), date: today, status: 'WFO', start: '14:00', end: '21:00', durationMs: 7 * 60 * 60 * 1000 });
                 updateDataStoreJSON();
             }
         };
@@ -450,8 +454,6 @@
             admTimeline: document.getElementById('admin-timeline-container'),
             admTasks: document.getElementById('admin-task-container'),
             admTodos: document.getElementById('admin-todo-container'),
-            btnClockOut: document.getElementById('btn-clock-out'),
-            btnExportHtml: document.getElementById('btn-export-html'),
             
             shiftForm: document.getElementById('shift-form'),
             taskForm: document.getElementById('task-form'),
@@ -461,7 +463,16 @@
             photoPreviewImg: document.getElementById('photo-preview-img'),
             btnRemovePhoto: document.getElementById('btn-remove-photo'),
             btnCancelEdit: document.getElementById('btn-cancel-edit'),
-            formTaskTitle: document.getElementById('form-task-title')
+            formTaskTitle: document.getElementById('form-task-title'),
+            
+            // Source Code Generator Els
+            btnShowCode: document.getElementById('btn-show-code'),
+            modalCode: document.getElementById('modal-sourcecode'),
+            modalCodeContent: document.getElementById('modal-sourcecode-content'),
+            textareaCode: document.getElementById('sourcecode-output'),
+            btnCopyCode: document.getElementById('btn-copy-sourcecode'),
+            btnCloseCode1: document.getElementById('btn-close-sourcecode'),
+            btnCloseCode2: document.getElementById('btn-done-sourcecode')
         };
 
         el.globalDate.value = state.selectedDate;
@@ -509,7 +520,7 @@
         setInterval(() => el.navClock.innerText = new Date().toLocaleTimeString('id-ID'), 1000);
 
         function updateDataStoreJSON() {
-            dataStoreEl.textContent = JSON.stringify({ shifts: state.shifts, tasks: state.tasks, todos: state.todos });
+            dataStoreEl.textContent = "\n    " + JSON.stringify({ shifts: state.shifts, tasks: state.tasks, todos: state.todos }) + "\n    ";
         }
 
         // --- 5. RENDER UI ---
@@ -540,14 +551,17 @@
             const dateShifts = state.shifts.filter(s => s.date === state.selectedDate).sort((a, b) => a.start.localeCompare(b.start));
             
             if(dateShifts.length === 0) {
-                el.admTimeline.innerHTML = '<li class="text-gray-400 italic">Belum ada sesi diinput.</li>';
-                el.pubTimeline.innerHTML = '<li class="text-gray-400 italic text-sm ml-4">Belum ada linimasa terdata.</li>';
+                el.admTimeline.innerHTML = '<li class="text-gray-400 italic text-center p-2">Kosong</li>';
+                el.pubTimeline.innerHTML = '<li class="text-gray-400 italic text-sm ml-4">Kosong</li>';
                 el.pubTotalHours.innerText = '0 Jam 0 Menit';
             } else {
                 el.admTimeline.innerHTML = dateShifts.map(s => `
                     <li class="flex justify-between bg-white p-2 rounded border border-gray-100 mb-1">
                         <span><span class="inline-block w-2 h-2 rounded-full ${getStatusColor(s.status)} mr-2"></span>${s.status}</span>
-                        <span class="text-gray-500 font-mono">${s.start} - ${s.end}</span>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 font-mono text-xs mr-3">${s.start} - ${s.end}</span>
+                            <button onclick="deleteShift(${s.id})" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                        </div>
                     </li>
                 `).join('');
 
@@ -580,11 +594,12 @@
             const taskHTML = (isAdmin) => dateTasks.map(t => `
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     ${isAdmin ? `
-                        <button onclick="editTask(${t.id})" class="absolute top-5 right-5 text-gray-400 hover:text-blue-500 p-1">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <div class="absolute top-5 right-5 space-x-2">
+                            <button onclick="editTask(${t.id})" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteTask(${t.id})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+                        </div>
                     ` : ''}
-                    <div class="flex items-start mb-1 pr-8">
+                    <div class="flex items-start mb-1 pr-14">
                         <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>${t.time}</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">${t.title}</h3>
                     </div>
@@ -635,55 +650,61 @@
             `).join('');
         };
 
-        // --- 6. EXPORT / COPY TO CLIPBOARD LOGIC ---
-        el.btnExportHtml.addEventListener('click', async () => {
-            const btn = el.btnExportHtml;
-            const originalHTML = btn.innerHTML;
+        // --- 6. GENERATE SOURCE CODE MODAL LOGIC ---
+        function generateHTMLCode() {
+            updateDataStoreJSON();
+            const clone = document.documentElement.cloneNode(true);
             
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...';
+            // Hapus Tailwind injection agar code bersih
+            const styles = clone.querySelectorAll('style');
+            styles.forEach(s => { if (s.id !== 'custom-styles') s.remove(); });
+
+            // Reset state tampilan ke public default untuk dicopy
+            clone.querySelector('#modal-login').classList.add('hidden', 'opacity-0');
+            clone.querySelector('#modal-sourcecode').classList.add('hidden', 'opacity-0');
+            clone.querySelector('#view-admin').classList.add('hidden');
+            clone.querySelector('#view-public').classList.remove('hidden');
+            clone.querySelector('#btn-logout').classList.add('hidden');
+            clone.querySelector('#btn-login-modal').classList.remove('hidden');
+
+            return "<!DOCTYPE html>\n<html lang=\"id\">\n" + clone.innerHTML + "\n</html>";
+        }
+
+        function triggerSourceCodePopup() {
+            const htmlString = generateHTMLCode();
+            el.textareaCode.value = htmlString;
             
+            el.modalCode.classList.remove('hidden');
+            setTimeout(() => { 
+                el.modalCode.classList.remove('opacity-0'); 
+                el.modalCodeContent.classList.remove('scale-95'); 
+            }, 10);
+        }
+
+        const closeSourceCodePopup = () => {
+            el.modalCode.classList.add('opacity-0');
+            el.modalCodeContent.classList.add('scale-95');
+            setTimeout(() => el.modalCode.classList.add('hidden'), 300);
+            
+            // Reset button state just in case
+            el.btnCopyCode.innerHTML = '<i class="fas fa-copy mr-2"></i> Copy Code';
+            el.btnCopyCode.classList.replace('bg-green-600', 'bg-blue-600');
+            el.btnCopyCode.classList.replace('hover:bg-green-700', 'hover:bg-blue-500');
+        };
+
+        el.btnShowCode.addEventListener('click', triggerSourceCodePopup);
+        el.btnCloseCode1.addEventListener('click', closeSourceCodePopup);
+        el.btnCloseCode2.addEventListener('click', closeSourceCodePopup);
+
+        el.btnCopyCode.addEventListener('click', async () => {
             try {
-                // 1. Update data
-                updateDataStoreJSON();
-                
-                // 2. Clone document for clean export
-                const clone = document.documentElement.cloneNode(true);
-                const styles = clone.querySelectorAll('style');
-                styles.forEach(s => { if (s.id !== 'custom-styles') s.remove(); });
-
-                // Reset view state to public for the exported file
-                clone.querySelector('#modal-login').classList.add('hidden', 'opacity-0');
-                clone.querySelector('#modal-report').classList.add('hidden', 'opacity-0');
-                clone.querySelector('#view-admin').classList.add('hidden');
-                clone.querySelector('#view-public').classList.remove('hidden');
-                clone.querySelector('#btn-logout').classList.add('hidden');
-                clone.querySelector('#btn-login-modal').classList.remove('hidden');
-
-                // Generate full HTML string
-                const htmlString = "<!DOCTYPE html>\n<html lang=\"id\">\n" + clone.innerHTML + "\n</html>";
-
-                // 3. COPY TO CLIPBOARD API
-                await navigator.clipboard.writeText(htmlString);
-                
-                // 4. Success feedback
-                btn.classList.replace('bg-green-600', 'bg-blue-600');
-                btn.classList.replace('hover:bg-green-700', 'hover:bg-blue-700');
-                btn.innerHTML = '<i class="fas fa-check-double mr-2"></i> Kode Tersalin!';
-                
-                showToast('Source Code berhasil disalin ke clipboard! Silakan paste di VS Code.', 'info', 5000);
-
-                setTimeout(() => {
-                    btn.classList.replace('bg-blue-600', 'bg-green-600');
-                    btn.classList.replace('hover:bg-blue-700', 'hover:bg-green-700');
-                    btn.innerHTML = originalHTML;
-                }, 3000);
-
+                await navigator.clipboard.writeText(el.textareaCode.value);
+                el.btnCopyCode.innerHTML = '<i class="fas fa-check-double mr-2"></i> Tersalin!';
+                el.btnCopyCode.classList.replace('bg-blue-600', 'bg-green-600');
+                el.btnCopyCode.classList.replace('hover:bg-blue-500', 'hover:bg-green-700');
+                showToast('Code dicopy! Silakan buka VS Code dan Ctrl+V', 'success', 4000);
             } catch (err) {
-                console.error('Gagal menyalin:', err);
-                btn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Gagal Menyalin';
-                showToast('Gagal menyalin kode. Pastikan browser mengizinkan akses Clipboard.', 'error');
-                
-                setTimeout(() => btn.innerHTML = originalHTML, 3000);
+                showToast('Gagal menyalin. Silakan copy manual teks di dalam box.', 'error');
             }
         });
 
@@ -694,41 +715,35 @@
             updateUI();
         });
 
-        // Submit Todo
+        // Submit Todo -> Tampilkan Code
         el.todoForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const start = document.getElementById('todo-start').value;
             const end = document.getElementById('todo-end').value;
             const title = document.getElementById('todo-title').value;
             
-            if(!start || !end || !title) return showToast('Harap isi semua kolom To-Do', 'error');
-            
+            if(!start || !end || !title) return showToast('Harap isi semua', 'error');
             state.todos.push({ id: Date.now(), date: state.selectedDate, title, start, end });
             el.todoForm.reset();
             updateUI();
-            showToast('Rencana To-Do ditambahkan');
+            
+            triggerSourceCodePopup(); // <--- OTOMATIS MUNCULKAN KODE
         });
 
-        // Delete Todo
-        window.deleteTodo = (id) => {
-            state.todos = state.todos.filter(t => t.id !== id);
-            updateUI();
-            showToast('Rencana dihapus', 'info');
-        };
+        window.deleteTodo = (id) => { state.todos = state.todos.filter(t => t.id !== id); updateUI(); };
+        window.deleteShift = (id) => { state.shifts = state.shifts.filter(s => s.id !== id); updateUI(); };
+        window.deleteTask = (id) => { state.tasks = state.tasks.filter(t => t.id !== id); updateUI(); };
 
         el.shiftForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const start = document.getElementById('shift-start').value;
             const end = document.getElementById('shift-end').value;
-            
-            if(!start || !end) return showToast('Harap isi jam', 'error');
             const durationMs = calculateDurationMs(start, end);
             if(durationMs <= 0) return showToast('Jam selesai salah', 'error');
 
             state.shifts.push({ id: Date.now(), date: state.selectedDate, status: document.getElementById('shift-status').value, start, end, durationMs });
             el.shiftForm.reset();
             updateUI();
-            showToast('Sesi ditambahkan');
         });
 
         el.photoInput.addEventListener('change', (e) => {
@@ -750,6 +765,7 @@
             el.photoPreviewContainer.classList.add('hidden');
         });
 
+        // Submit Pekerjaan -> Tampilkan Code
         el.taskForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const taskData = {
@@ -767,17 +783,17 @@
                 if(idx > -1) {
                     if(!taskData.file) taskData.file = state.tasks[idx].file;
                     state.tasks[idx] = { ...state.tasks[idx], ...taskData };
-                    showToast('Tugas diupdate');
                 }
                 cancelEditMode();
             } else {
                 state.tasks.push({ id: Date.now(), ...taskData });
-                showToast('Pekerjaan disimpan');
             }
 
             el.taskForm.reset();
             el.btnRemovePhoto.click();
             updateUI();
+            
+            triggerSourceCodePopup(); // <--- OTOMATIS MUNCULKAN KODE
         });
 
         window.editTask = (id) => {
@@ -797,8 +813,9 @@
             } else { el.btnRemovePhoto.click(); }
 
             el.formTaskTitle.innerHTML = '<i class="fas fa-edit text-amber-500 mr-2"></i>Edit Pekerjaan';
-            document.getElementById('btn-submit-task').innerHTML = 'Update Progres';
-            document.getElementById('btn-submit-task').classList.replace('bg-gray-900', 'bg-amber-600');
+            document.getElementById('btn-submit-task').innerHTML = '<i class="fas fa-save mr-2"></i> Update Inputan Pekerjaan';
+            document.getElementById('btn-submit-task').classList.replace('bg-blue-600', 'bg-amber-600');
+            document.getElementById('btn-submit-task').classList.replace('hover:bg-blue-700', 'hover:bg-amber-700');
             el.btnCancelEdit.classList.remove('hidden');
             el.taskForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
         };
@@ -808,47 +825,13 @@
             el.taskForm.reset();
             el.btnRemovePhoto.click();
             el.formTaskTitle.innerHTML = '<i class="fas fa-edit text-blue-500 mr-2"></i>Input Pekerjaan';
-            document.getElementById('btn-submit-task').innerHTML = 'Simpan Inputan Pekerjaan';
-            document.getElementById('btn-submit-task').classList.replace('bg-amber-600', 'bg-gray-900');
+            document.getElementById('btn-submit-task').innerHTML = '<i class="fas fa-save mr-2"></i> Simpan Inputan Pekerjaan';
+            document.getElementById('btn-submit-task').classList.replace('bg-amber-600', 'bg-blue-600');
+            document.getElementById('btn-submit-task').classList.replace('hover:bg-amber-700', 'hover:bg-blue-700');
             el.btnCancelEdit.classList.add('hidden');
         };
 
         el.btnCancelEdit.addEventListener('click', cancelEditMode);
-
-        const modalReport = document.getElementById('modal-report');
-        el.btnClockOut.addEventListener('click', () => {
-            const dateShifts = state.shifts.filter(s => s.date === state.selectedDate);
-            const totalMs = dateShifts.reduce((acc, curr) => acc + curr.durationMs, 0);
-            const sevenHoursMs = 7 * 60 * 60 * 1000;
-
-            if (totalMs < sevenHoursMs) {
-                document.getElementById('report-modal-desc').innerText = `Total jam tercatat di tanggal ini hanya ${formatDuration(totalMs)}. Wajib mengisi laporan.`;
-                modalReport.classList.remove('hidden');
-                setTimeout(() => { modalReport.classList.remove('opacity-0'); document.getElementById('modal-report-content').classList.remove('scale-95'); }, 10);
-            } else {
-                showToast('Syarat 7 Jam Terpenuhi! Silakan "Salin Source Code".');
-            }
-        });
-
-        document.getElementById('btn-cancel-report').addEventListener('click', () => {
-            modalReport.classList.add('opacity-0');
-            document.getElementById('modal-report-content').classList.add('scale-95');
-            setTimeout(() => modalReport.classList.add('hidden'), 300);
-        });
-
-        document.getElementById('btn-submit-report').addEventListener('click', () => {
-            const reportText = document.getElementById('eod-report-text').value;
-            if(!reportText.trim()) return showToast('Laporan tidak boleh kosong!', 'error');
-            const now = new Date();
-            state.tasks.push({
-                id: Date.now(), date: state.selectedDate, time: `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`,
-                title: 'Laporan Selesai Lebih Awal (EoD)', desc: reportText, github: '', file: null, photo: null
-            });
-            document.getElementById('eod-report-text').value = '';
-            document.getElementById('btn-cancel-report').click();
-            updateUI();
-            showToast('Laporan disimpan. Jangan lupa klik "Salin Source Code"');
-        });
 
         const modalLogin = document.getElementById('modal-login');
         el.btnLogin.addEventListener('click', () => {
