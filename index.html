@@ -25,7 +25,7 @@
 <body class="text-gray-800 antialiased h-screen flex flex-col">
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
-    <script id="app-data" type="application/json">{"shifts":[{"id":1791880220304,"date":"2026-10-13","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1791880314445,"date":"2026-10-13","time":"14:00","title":"Update Desktop App ATG","desc":" ","github":"","file":null,"photo":null}]}</script>
+    <script id="app-data" type="application/json">{"shifts":[{"id":1791976804442,"date":"2026-10-14","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1791977040434,"date":"2026-10-14","time":"10:00","title":"Update Desktop App ATG","desc":"troubleshooting hardware dan software ATG di metrologi","github":"","file":null,"photo":null}],"todos":[{"id":1791976910267,"date":"2026-10-14","title":"Instalasi joystick & tutor software ATG untuk operator di metrologi","start":"10:00","end":"15:00"}]}</script>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-20">
@@ -36,9 +36,9 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">15.33.29</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">18.24.03</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
-                        <i class="fas fa-lock mr-2"></i>Login
+                        <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
                     <button id="btn-logout" class="bg-red-50 text-red-600 hover:bg-red-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hidden">
                         <i class="fas fa-sign-out-alt mr-2"></i>Logout
@@ -61,7 +61,7 @@
                             <p class="text-blue-100 mb-3">Pemantauan progres dan linimasa kerja harian.</p>
                             <div class="inline-flex items-center bg-white/20 px-3 py-1.5 rounded-full text-sm font-medium border border-white/30 backdrop-blur-sm">
                                 <i class="far fa-calendar-check mr-2"></i>
-                                <span id="public-date-display">Selasa, 13 Oktober 2026</span>
+                                <span id="public-date-display">Rabu, 14 Oktober 2026</span>
                             </div>
                         </div>
                         <div class="mt-4 md:mt-0 flex flex-col bg-white/20 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/30 text-center">
@@ -74,7 +74,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- Public Timeline -->
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden lg:col-span-1">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden lg:col-span-1 h-fit">
                         <div class="p-5 border-b border-gray-100 bg-gray-50">
                             <h2 class="text-md font-bold text-gray-800"><i class="fas fa-route text-blue-500 mr-2"></i>Linimasa Lokasi</h2>
                         </div>
@@ -90,21 +90,21 @@
                         </div>
                     </div>
 
-                    <!-- Public Task List -->
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden lg:col-span-2">
-                        <div class="p-5 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
-                            <h2 class="text-md font-bold text-gray-800"><i class="fas fa-tasks text-blue-500 mr-2"></i>Tugas Selesai</h2>
-                            <span id="public-task-count" class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">1 Tugas</span>
-                        </div>
-                        <div id="public-task-container" class="divide-y divide-gray-100">
+                    <div class="space-y-6 lg:col-span-2">
+                        <!-- Public Task List -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="p-5 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                                <h2 class="text-md font-bold text-gray-800"><i class="fas fa-tasks text-blue-500 mr-2"></i>Tugas Selesai</h2>
+                                <span id="public-task-count" class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">1 Tugas</span>
+                            </div>
+                            <div id="public-task-container" class="divide-y divide-gray-100">
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
                     <div class="flex items-start mb-1 pr-8">
-                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>14:00</span>
+                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">Update Desktop App ATG</h3>
                     </div>
-                    <p class="text-xs text-blue-500 font-medium ml-[4.5rem] mb-2"><i class="far fa-calendar-alt mr-1"></i>Sel, 13 Okt 2026</p>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem]"> </p>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">troubleshooting hardware dan software ATG di metrologi</p>
                     <div class="flex flex-wrap gap-2 ml-[4.5rem]">
                         
                         
@@ -112,6 +112,21 @@
                     
                 </div>
             </div>
+                        </div>
+
+                        <!-- Public To-Do List (Rencana Besok) -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="p-5 border-b border-gray-100 bg-indigo-50 flex justify-between items-center">
+                                <h2 class="text-md font-bold text-indigo-900"><i class="fas fa-calendar-day text-indigo-500 mr-2"></i>Rencana Besok (To-Do)</h2>
+                                <span id="public-todo-count" class="bg-indigo-200 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">1 Rencana</span>
+                            </div>
+                            <div id="public-todo-container" class="divide-y divide-gray-100">
+                <div class="p-4 hover:bg-indigo-50/50 transition-colors border-b border-gray-100 last:border-0 flex items-start">
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00 - 15:00</span>
+                    <h3 class="text-sm font-semibold text-gray-800 mt-0.5">Instalasi joystick &amp; tutor software ATG untuk operator di metrologi</h3>
+                </div>
+            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,123 +149,167 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Admin: Location & Shift Log -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 lg:col-span-1 flex flex-col">
-                        <h2 class="text-md font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Catat Sesi Lokasi (Per Jam)</h2>
-                        
-                        <form id="shift-form" class="space-y-4 mb-6">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-700 mb-1">Status Lokasi</label>
-                                <select id="shift-status" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500">
-                                    <option value="WFO">WFO (Work From Office)</option>
-                                    <option value="WFA">WFA (Work From Anywhere)</option>
-                                    <option value="WFC">WFC (Work From Cafe)</option>
-                                    <option value="Kombinasi">Kombinasi</option>
-                                </select>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
+                    
+                    <!-- Kiri: Timeline & Rencana Besok -->
+                    <div class="space-y-6 lg:col-span-1">
+                        <!-- Admin: Location & Shift Log -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
+                            <h2 class="text-md font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Catat Sesi Lokasi (Per Jam)</h2>
+                            
+                            <form id="shift-form" class="space-y-4 mb-6">
                                 <div>
-                                    <label class="block text-xs font-medium text-gray-700 mb-1">Jam Mulai</label>
-                                    <input type="time" id="shift-start" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500" required="">
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Status Lokasi</label>
+                                    <select id="shift-status" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500">
+                                        <option value="WFO">WFO (Work From Office)</option>
+                                        <option value="WFA">WFA (Work From Anywhere)</option>
+                                        <option value="WFC">WFC (Work From Cafe)</option>
+                                        <option value="Kombinasi">Kombinasi</option>
+                                    </select>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-medium text-gray-700 mb-1">Jam Selesai</label>
-                                    <input type="time" id="shift-end" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500" required="">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Jam Mulai</label>
+                                        <input type="time" id="shift-start" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500" required="">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Jam Selesai</label>
+                                        <input type="time" id="shift-end" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-blue-500" required="">
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 rounded-lg transition-colors">
-                                <i class="fas fa-plus mr-1"></i> Tambah Sesi Jam
-                            </button>
-                        </form>
+                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-plus mr-1"></i> Tambah Sesi Jam
+                                </button>
+                            </form>
 
-                        <div class="flex-grow overflow-auto mb-4 bg-gray-50 rounded-lg p-3 border border-gray-100">
-                            <p class="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">Riwayat Sesi Terpilih</p>
-                            <ul id="admin-timeline-container" class="space-y-2 text-sm">
+                            <div class="flex-grow overflow-auto mb-4 bg-gray-50 rounded-lg p-3 border border-gray-100 max-h-48">
+                                <p class="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">Riwayat Sesi Terpilih</p>
+                                <ul id="admin-timeline-container" class="space-y-2 text-sm">
                     <li class="flex justify-between bg-white p-2 rounded border border-gray-100 mb-1">
                         <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
                         <span class="text-gray-500 font-mono">14:00 - 21:00</span>
                     </li>
                 </ul>
+                            </div>
+
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <button id="btn-clock-out" class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex justify-center items-center shadow-sm">
+                                    <i class="fas fa-flag-checkered mr-2"></i> Cek &amp; Selesaikan Hari Ini
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <button id="btn-clock-out" class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex justify-center items-center shadow-sm">
-                                <i class="fas fa-flag-checkered mr-2"></i> Cek &amp; Selesaikan Hari Ini
-                            </button>
+                        <!-- Admin: To-Do Rencana Besok -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
+                            <h2 class="text-md font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-calendar-plus text-indigo-500 mr-2"></i>Target / Rencana Besok</h2>
+                            
+                            <form id="todo-form" class="space-y-4 mb-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Target Pekerjaan</label>
+                                    <input type="text" id="todo-title" placeholder="Contoh: Testing API baru" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-indigo-500" required="">
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Mulai Pukul</label>
+                                        <input type="time" id="todo-start" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-indigo-500" required="">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Selesai Pukul</label>
+                                        <input type="time" id="todo-end" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2 focus:ring-indigo-500" required="">
+                                    </div>
+                                </div>
+                                <button type="submit" class="w-full bg-gray-900 hover:bg-black text-white text-sm font-medium py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-plus mr-1"></i> Simpan Rencana Besok
+                                </button>
+                            </form>
+                            
+                            <div class="flex-grow overflow-auto bg-indigo-50/50 rounded-lg p-3 border border-indigo-100 max-h-48">
+                                <p class="text-xs font-semibold text-indigo-800 mb-2 uppercase tracking-wide">Daftar Rencana</p>
+                                <ul id="admin-todo-container" class="space-y-2 text-sm">
+                <li class="flex justify-between items-center bg-white p-2 rounded border border-indigo-100 mb-1">
+                    <span class="font-medium text-gray-800 truncate pr-2"><i class="fas fa-caret-right text-indigo-400 mr-2"></i>Instalasi joystick &amp; tutor software ATG untuk operator di metrologi</span>
+                    <div class="flex items-center shrink-0">
+                        <span class="text-gray-500 font-mono text-xs mr-3">10:00 - 15:00</span>
+                        <button onclick="deleteTodo(1791976910267)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                    </div>
+                </li>
+            </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Admin: Task Form -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 lg:col-span-2">
-                        <div class="flex justify-between items-center mb-5 border-b pb-2">
-                            <h2 class="text-md font-bold text-gray-800" id="form-task-title"><i class="fas fa-edit text-blue-500 mr-2"></i>Input Pekerjaan</h2>
-                            <button id="btn-cancel-edit" class="text-xs bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded hidden">Batal Edit</button>
+                    <!-- Kanan: Form Input Pekerjaan & Riwayat -->
+                    <div class="space-y-6 lg:col-span-2">
+                        <!-- Admin: Task Form -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-5 border-b pb-2">
+                                <h2 class="text-md font-bold text-gray-800" id="form-task-title"><i class="fas fa-edit text-blue-500 mr-2"></i>Input Pekerjaan Hari Ini</h2>
+                                <button id="btn-cancel-edit" class="text-xs bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded hidden">Batal Edit</button>
+                            </div>
+                            
+                            <form id="task-form" class="space-y-4">
+                                <input type="hidden" id="task-id">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Judul Pekerjaan <span class="text-red-500">*</span></label>
+                                        <input type="text" id="task-title" placeholder="Contoh: Setup Alarm Gas" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required="">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Jam Dikerjakan <span class="text-red-500">*</span></label>
+                                        <input type="time" id="task-time" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required="">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Detail <span class="text-red-500">*</span></label>
+                                    <textarea id="task-desc" rows="3" placeholder="Jelaskan detail pekerjaan yang dilakukan..." class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required=""></textarea>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Link GitHub (Opsional)</label>
+                                        <input type="url" id="task-github" placeholder="https://github.com/..." class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama File Zip/Source Code (Opsional)</label>
+                                        <input type="file" id="task-file" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-blue-50 file:text-blue-700">
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Upload Foto / Bukti Pekerjaan (Opsional)</label>
+                                    <input type="file" id="task-photo" accept="image/*" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-indigo-50 file:text-indigo-700">
+                                    <div id="photo-preview-container" class="mt-3 hidden">
+                                        <p class="text-xs text-gray-500 mb-1">Preview Gambar:</p>
+                                        <img id="photo-preview-img" src="" alt="Preview" class="h-32 object-cover rounded-lg border border-gray-200">
+                                        <button type="button" id="btn-remove-photo" class="text-xs text-red-500 mt-1 hover:underline">Hapus Foto</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-5 flex justify-end border-t pt-4">
+                                    <button type="submit" id="btn-submit-task" class="bg-gray-900 hover:bg-black text-white font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm">
+                                        Simpan Inputan Pekerjaan
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        
-                        <form id="task-form" class="space-y-4">
-                            <input type="hidden" id="task-id">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Pekerjaan <span class="text-red-500">*</span></label>
-                                    <input type="text" id="task-title" placeholder="Contoh: Setup Alarm Gas" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required="">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jam Dikerjakan <span class="text-red-500">*</span></label>
-                                    <input type="time" id="task-time" class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required="">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Detail <span class="text-red-500">*</span></label>
-                                <textarea id="task-desc" rows="3" placeholder="Jelaskan detail pekerjaan yang dilakukan..." class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500" required=""></textarea>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Link GitHub (Opsional)</label>
-                                    <input type="url" id="task-github" placeholder="https://github.com/..." class="w-full bg-gray-50 border border-gray-300 text-sm rounded-lg p-2.5 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama File Zip/Source Code (Opsional)</label>
-                                    <input type="file" id="task-file" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-blue-50 file:text-blue-700">
-                                </div>
-                            </div>
 
-                            <div class="pt-2">
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Upload Foto / Bukti Pekerjaan (Opsional)</label>
-                                <input type="file" id="task-photo" accept="image/*" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-indigo-50 file:text-indigo-700">
-                                <div id="photo-preview-container" class="mt-3 hidden">
-                                    <p class="text-xs text-gray-500 mb-1">Preview Gambar:</p>
-                                    <img id="photo-preview-img" src="" alt="Preview" class="h-32 object-cover rounded-lg border border-gray-200">
-                                    <button type="button" id="btn-remove-photo" class="text-xs text-red-500 mt-1 hover:underline">Hapus Foto</button>
-                                </div>
+                        <!-- Admin Task List -->
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="p-5 border-b border-gray-100 bg-gray-50">
+                                <h2 class="text-md font-bold text-gray-800">Riwayat Pekerjaan (Mode Admin)</h2>
                             </div>
-                            
-                            <div class="mt-5 flex justify-end border-t pt-4">
-                                <button type="submit" id="btn-submit-task" class="bg-gray-900 hover:bg-black text-white font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm">Simpan Inputan Pekerjaan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Admin Task List -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mt-6">
-                    <div class="p-5 border-b border-gray-100 bg-gray-50">
-                        <h2 class="text-md font-bold text-gray-800">Riwayat Pekerjaan (Mode Admin)</h2>
-                    </div>
-                    <div id="admin-task-container" class="divide-y divide-gray-100">
+                            <div id="admin-task-container" class="divide-y divide-gray-100">
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
-                        <button onclick="editTask(1791880314445)" class="absolute top-5 right-5 text-gray-400 hover:text-blue-500 p-1">
+                        <button onclick="editTask(1791977040434)" class="absolute top-5 right-5 text-gray-400 hover:text-blue-500 p-1">
                             <i class="fas fa-edit"></i>
                         </button>
                     
                     <div class="flex items-start mb-1 pr-8">
-                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>14:00</span>
+                        <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>10:00</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">Update Desktop App ATG</h3>
                     </div>
-                    <p class="text-xs text-blue-500 font-medium ml-[4.5rem] mb-2"><i class="far fa-calendar-alt mr-1"></i>Sel, 13 Okt 2026</p>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem]"> </p>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">troubleshooting hardware dan software ATG di metrologi</p>
                     <div class="flex flex-wrap gap-2 ml-[4.5rem]">
                         
                         
@@ -258,6 +317,8 @@
                     
                 </div>
             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,7 +332,7 @@
                 <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
                     <i class="fas fa-user-shield"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">Erlangga Login</h3>
+                <h3 class="text-xl font-bold text-gray-900">Admin Login</h3>
                 <p class="text-sm text-gray-500 mt-1">Gunakan PIN untuk akses edit &amp; kontrol</p>
             </div>
             <div class="space-y-4">
@@ -319,9 +380,11 @@
     <script>
         // --- 1. MEMUAT DATA DARI SOURCE CODE ---
         const dataStoreEl = document.getElementById('app-data');
-        let initialData = { shifts: [], tasks: [] };
+        let initialData = { shifts: [], tasks: [], todos: [] };
         try {
-            initialData = JSON.parse(dataStoreEl.textContent.trim() || '{"shifts":[],"tasks":[]}');
+            initialData = JSON.parse(dataStoreEl.textContent.trim() || '{"shifts":[],"tasks":[],"todos":[]}');
+            // Menjaga kompatibilitas data lama jika belum ada array todos
+            if(!initialData.todos) initialData.todos = [];
         } catch(e) {
             console.error("Gagal memuat data dari source code", e);
         }
@@ -333,12 +396,12 @@
             selectedDate: getTodayString(),
             shifts: initialData.shifts,
             tasks: initialData.tasks,
+            todos: initialData.todos,
             editingTaskId: null,
             currentPhotoBase64: null
         };
 
         // --- 2. AUTO-WFO LOGIC ---
-        // Jika belum ada jadwal shift di tanggal hari ini, buat otomatis WFO jam 14:00 - 21:00
         const checkAutoWFO = () => {
             const today = getTodayString();
             const hasShiftToday = state.shifts.some(s => s.date === today);
@@ -350,16 +413,12 @@
                     status: 'WFO',
                     start: '14:00',
                     end: '21:00',
-                    durationMs: 7 * 60 * 60 * 1000 // 7 Jam
+                    durationMs: 7 * 60 * 60 * 1000
                 });
                 console.log("Auto-WFO 14:00-21:00 dibuat untuk hari ini.");
-                // Jika ingin otomatis simpan ke HTML saat buka, uncomment baris bawah:
-                // namun biasanya user ingin melihat dulu. Kita update JSON DOM saja.
                 updateDataStoreJSON();
             }
         };
-
-        // Jalankan pengecekan Auto-WFO saat halaman dimuat
         checkAutoWFO();
 
         // --- 3. DOM ELEMENTS ---
@@ -375,15 +434,19 @@
             pubTimeline: document.getElementById('public-timeline-container'),
             pubTasks: document.getElementById('public-task-container'),
             pubTaskCount: document.getElementById('public-task-count'),
+            pubTodos: document.getElementById('public-todo-container'),
+            pubTodoCount: document.getElementById('public-todo-count'),
             pubTotalHours: document.getElementById('public-total-hours'),
             
             admTimeline: document.getElementById('admin-timeline-container'),
             admTasks: document.getElementById('admin-task-container'),
+            admTodos: document.getElementById('admin-todo-container'),
             btnClockOut: document.getElementById('btn-clock-out'),
             btnExportHtml: document.getElementById('btn-export-html'),
             
             shiftForm: document.getElementById('shift-form'),
             taskForm: document.getElementById('task-form'),
+            todoForm: document.getElementById('todo-form'),
             photoInput: document.getElementById('task-photo'),
             photoPreviewContainer: document.getElementById('photo-preview-container'),
             photoPreviewImg: document.getElementById('photo-preview-img'),
@@ -436,9 +499,8 @@
 
         setInterval(() => el.navClock.innerText = new Date().toLocaleTimeString('id-ID'), 1000);
 
-        // Memperbarui block `<script type="application/json">` setiap ada perubahan data
         function updateDataStoreJSON() {
-            dataStoreEl.textContent = JSON.stringify({ shifts: state.shifts, tasks: state.tasks });
+            dataStoreEl.textContent = JSON.stringify({ shifts: state.shifts, tasks: state.tasks, todos: state.todos });
         }
 
         // --- 5. RENDER UI ---
@@ -461,6 +523,7 @@
 
             renderShifts();
             renderTasks();
+            renderTodos();
             updateDataStoreJSON();
         };
 
@@ -468,8 +531,8 @@
             const dateShifts = state.shifts.filter(s => s.date === state.selectedDate).sort((a, b) => a.start.localeCompare(b.start));
             
             if(dateShifts.length === 0) {
-                el.admTimeline.innerHTML = '<li class="text-gray-400 italic">Belum ada sesi diinput pada tanggal ini.</li>';
-                el.pubTimeline.innerHTML = '<li class="text-gray-400 italic text-sm ml-4">Belum ada linimasa terdata pada tanggal ini.</li>';
+                el.admTimeline.innerHTML = '<li class="text-gray-400 italic">Belum ada sesi diinput.</li>';
+                el.pubTimeline.innerHTML = '<li class="text-gray-400 italic text-sm ml-4">Belum ada linimasa terdata.</li>';
                 el.pubTotalHours.innerText = '0 Jam 0 Menit';
             } else {
                 el.admTimeline.innerHTML = dateShifts.map(s => `
@@ -497,7 +560,7 @@
             const dateTasks = state.tasks.filter(t => t.date === state.selectedDate).sort((a, b) => b.time.localeCompare(a.time));
             
             el.pubTaskCount.innerText = `${dateTasks.length} Tugas`;
-            const emptyHTML = `<div class="p-8 text-center text-gray-400"><i class="fas fa-clipboard-list text-4xl mb-3 opacity-30"></i><p class="text-sm">Belum ada progres dicatat pada tanggal ini.</p></div>`;
+            const emptyHTML = `<div class="p-8 text-center text-gray-400"><i class="fas fa-clipboard-list text-4xl mb-3 opacity-30"></i><p class="text-sm">Belum ada progres dicatat.</p></div>`;
             
             if(dateTasks.length === 0) {
                 el.pubTasks.innerHTML = emptyHTML;
@@ -516,8 +579,7 @@
                         <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>${t.time}</span>
                         <h3 class="text-md font-bold text-gray-900 leading-tight">${t.title}</h3>
                     </div>
-                    <p class="text-xs text-blue-500 font-medium ml-[4.5rem] mb-2"><i class="far fa-calendar-alt mr-1"></i>${new Date(t.date).toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })}</p>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem]">${t.desc}</p>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line ml-[4.5rem] mt-2">${t.desc}</p>
                     <div class="flex flex-wrap gap-2 ml-[4.5rem]">
                         ${t.github ? `<a href="${t.github}" target="_blank" class="inline-flex items-center text-xs font-medium bg-gray-900 text-white px-3 py-1.5 rounded-md hover:bg-gray-700 transition"><i class="fab fa-github mr-1.5"></i> Repository</a>` : ''}
                         ${t.file ? `<span class="inline-flex items-center text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md border border-blue-100"><i class="fas fa-file-archive mr-1.5"></i> ${t.file}</span>` : ''}
@@ -534,25 +596,46 @@
             el.admTasks.innerHTML = taskHTML(true);
         };
 
+        const renderTodos = () => {
+            const dateTodos = state.todos.filter(t => t.date === state.selectedDate).sort((a, b) => a.start.localeCompare(b.start));
+            
+            el.pubTodoCount.innerText = `${dateTodos.length} Rencana`;
+            const emptyHTML = `<div class="p-6 text-center text-gray-400"><p class="text-sm italic">Belum ada target rencana hari esok dicatat.</p></div>`;
+            
+            if(dateTodos.length === 0) {
+                el.pubTodos.innerHTML = emptyHTML;
+                el.admTodos.innerHTML = '<li class="text-gray-400 italic text-center p-2">Kosong</li>';
+                return;
+            }
+
+            // Admin List
+            el.admTodos.innerHTML = dateTodos.map(t => `
+                <li class="flex justify-between items-center bg-white p-2 rounded border border-indigo-100 mb-1">
+                    <span class="font-medium text-gray-800 truncate pr-2"><i class="fas fa-caret-right text-indigo-400 mr-2"></i>${t.title}</span>
+                    <div class="flex items-center shrink-0">
+                        <span class="text-gray-500 font-mono text-xs mr-3">${t.start} - ${t.end}</span>
+                        <button onclick="deleteTodo(${t.id})" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                    </div>
+                </li>
+            `).join('');
+
+            // Public List
+            el.pubTodos.innerHTML = dateTodos.map(t => `
+                <div class="p-4 hover:bg-indigo-50/50 transition-colors border-b border-gray-100 last:border-0 flex items-start">
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>${t.start} - ${t.end}</span>
+                    <h3 class="text-sm font-semibold text-gray-800 mt-0.5">${t.title}</h3>
+                </div>
+            `).join('');
+        };
+
         // --- 6. EXPORT / SAVE TO SOURCE CODE LOGIC ---
         el.btnExportHtml.addEventListener('click', () => {
             showToast('Menyiapkan file HTML baru...', 'info', 1500);
-            
-            // 1. Pastikan JSON data terupdate
             updateDataStoreJSON();
-
-            // 2. Clone keseluruhan document untuk dimanipulasi
             const clone = document.documentElement.cloneNode(true);
-            
-            // 3. Bersihkan gaya tailwind yang di-inject otomatis (agar file tidak membengkak)
             const styles = clone.querySelectorAll('style');
-            styles.forEach(s => {
-                if (s.id !== 'custom-styles') { // Hapus semua <style> selain custom milik kita
-                    s.remove();
-                }
-            });
+            styles.forEach(s => { if (s.id !== 'custom-styles') s.remove(); });
 
-            // 4. Pastikan tampilan di file baru otomatis "Logout" dan rapi
             clone.querySelector('#modal-login').classList.add('hidden', 'opacity-0');
             clone.querySelector('#modal-report').classList.add('hidden', 'opacity-0');
             clone.querySelector('#view-admin').classList.add('hidden');
@@ -560,25 +643,19 @@
             clone.querySelector('#btn-logout').classList.add('hidden');
             clone.querySelector('#btn-login-modal').classList.remove('hidden');
 
-            // 5. Build HTML String
             const htmlString = "<!DOCTYPE html>\n<html lang=\"id\">\n" + clone.innerHTML + "\n</html>";
-
-            // 6. Download Trigger
             const blob = new Blob([htmlString], { type: "text/html;charset=utf-8" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "index.html"; // Nama file default
+            a.download = "index.html"; 
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
 
-            setTimeout(() => {
-                showToast('File HTML berhasil didownload! Silakan REPLACE/TIMPA file lama Anda dengan file ini.', 'success', 6000);
-            }, 1000);
+            setTimeout(() => { showToast('File HTML berhasil didownload! Silakan git push.', 'success', 6000); }, 1000);
         });
-
 
         // --- 7. EVENT LISTENERS ---
         el.globalDate.addEventListener('change', (e) => {
@@ -586,6 +663,28 @@
             cancelEditMode();
             updateUI();
         });
+
+        // Submit Todo
+        el.todoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const start = document.getElementById('todo-start').value;
+            const end = document.getElementById('todo-end').value;
+            const title = document.getElementById('todo-title').value;
+            
+            if(!start || !end || !title) return showToast('Harap isi semua kolom To-Do', 'error');
+            
+            state.todos.push({ id: Date.now(), date: state.selectedDate, title, start, end });
+            el.todoForm.reset();
+            updateUI();
+            showToast('Rencana To-Do ditambahkan (Jangan lupa Save ke HTML)');
+        });
+
+        // Delete Todo
+        window.deleteTodo = (id) => {
+            state.todos = state.todos.filter(t => t.id !== id);
+            updateUI();
+            showToast('Rencana dihapus', 'info');
+        };
 
         el.shiftForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -599,7 +698,7 @@
             state.shifts.push({ id: Date.now(), date: state.selectedDate, status: document.getElementById('shift-status').value, start, end, durationMs });
             el.shiftForm.reset();
             updateUI();
-            showToast('Sesi ditambahkan (Jangan lupa Save ke HTML nanti)');
+            showToast('Sesi ditambahkan (Jangan lupa Save ke HTML)');
         });
 
         el.photoInput.addEventListener('change', (e) => {
@@ -739,7 +838,7 @@
                 document.getElementById('btn-close-login').click();
                 updateUI();
                 showToast('Login berhasil!');
-            } else { showToast('PIN salah! Hanya Erlangga yang dapat login', 'error'); }
+            } else { showToast('PIN salah!', 'error'); }
         });
 
         el.btnLogout.addEventListener('click', () => {
@@ -753,7 +852,6 @@
 
         updateUI();
     </script>
-
 
 </body>
 </html>
