@@ -121,9 +121,10 @@
                         <input type="date" id="global-date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 font-semibold">
                     </div>
 
-                    <!-- TOMBOL SAVE TO SOURCE CODE -->
-                    <button id="btn-export-html" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center">
-                        <i class="fas fa-download mr-2"></i> Simpan Permanen ke HTML
+                    <!-- TOMBOL COPY KE CLIPBOARD -->
+                    <button id="btn-export-html" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center relative overflow-hidden group">
+                        <span class="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                        <i class="fas fa-copy mr-2"></i> <span>Salin Source Code (Copy HTML)</span>
                     </button>
                 </div>
 
@@ -334,7 +335,6 @@
         let initialData = { shifts: [], tasks: [], todos: [] };
         try {
             initialData = JSON.parse(dataStoreEl.textContent.trim() || '{"shifts":[],"tasks":[],"todos":[]}');
-            // Menjaga kompatibilitas data lama jika belum ada array todos
             if(!initialData.todos) initialData.todos = [];
         } catch(e) {
             console.error("Gagal memuat data dari source code", e);
@@ -559,7 +559,6 @@
                 return;
             }
 
-            // Admin List
             el.admTodos.innerHTML = dateTodos.map(t => `
                 <li class="flex justify-between items-center bg-white p-2 rounded border border-indigo-100 mb-1">
                     <span class="font-medium text-gray-800 truncate pr-2"><i class="fas fa-caret-right text-indigo-400 mr-2"></i>${t.title}</span>
@@ -570,7 +569,6 @@
                 </li>
             `).join('');
 
-            // Public List
             el.pubTodos.innerHTML = dateTodos.map(t => `
                 <div class="p-4 hover:bg-indigo-50/50 transition-colors border-b border-gray-100 last:border-0 flex items-start">
                     <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>${t.start} - ${t.end}</span>
@@ -579,33 +577,56 @@
             `).join('');
         };
 
-        // --- 6. EXPORT / SAVE TO SOURCE CODE LOGIC ---
-        el.btnExportHtml.addEventListener('click', () => {
-            showToast('Menyiapkan file HTML baru...', 'info', 1500);
-            updateDataStoreJSON();
-            const clone = document.documentElement.cloneNode(true);
-            const styles = clone.querySelectorAll('style');
-            styles.forEach(s => { if (s.id !== 'custom-styles') s.remove(); });
+        // --- 6. EXPORT / COPY TO CLIPBOARD LOGIC ---
+        el.btnExportHtml.addEventListener('click', async () => {
+            const btn = el.btnExportHtml;
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...';
+            
+            try {
+                // 1. Update data
+                updateDataStoreJSON();
+                
+                // 2. Clone document for clean export
+                const clone = document.documentElement.cloneNode(true);
+                const styles = clone.querySelectorAll('style');
+                styles.forEach(s => { if (s.id !== 'custom-styles') s.remove(); });
 
-            clone.querySelector('#modal-login').classList.add('hidden', 'opacity-0');
-            clone.querySelector('#modal-report').classList.add('hidden', 'opacity-0');
-            clone.querySelector('#view-admin').classList.add('hidden');
-            clone.querySelector('#view-public').classList.remove('hidden');
-            clone.querySelector('#btn-logout').classList.add('hidden');
-            clone.querySelector('#btn-login-modal').classList.remove('hidden');
+                // Reset view state to public for the exported file
+                clone.querySelector('#modal-login').classList.add('hidden', 'opacity-0');
+                clone.querySelector('#modal-report').classList.add('hidden', 'opacity-0');
+                clone.querySelector('#view-admin').classList.add('hidden');
+                clone.querySelector('#view-public').classList.remove('hidden');
+                clone.querySelector('#btn-logout').classList.add('hidden');
+                clone.querySelector('#btn-login-modal').classList.remove('hidden');
 
-            const htmlString = "<!DOCTYPE html>\n<html lang=\"id\">\n" + clone.innerHTML + "\n</html>";
-            const blob = new Blob([htmlString], { type: "text/html;charset=utf-8" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "index.html"; 
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+                // Generate full HTML string
+                const htmlString = "<!DOCTYPE html>\n<html lang=\"id\">\n" + clone.innerHTML + "\n</html>";
 
-            setTimeout(() => { showToast('File HTML berhasil didownload! Silakan git push.', 'success', 6000); }, 1000);
+                // 3. COPY TO CLIPBOARD API
+                await navigator.clipboard.writeText(htmlString);
+                
+                // 4. Success feedback
+                btn.classList.replace('bg-green-600', 'bg-blue-600');
+                btn.classList.replace('hover:bg-green-700', 'hover:bg-blue-700');
+                btn.innerHTML = '<i class="fas fa-check-double mr-2"></i> Kode Tersalin!';
+                
+                showToast('Source Code berhasil disalin ke clipboard! Silakan paste di VS Code.', 'info', 5000);
+
+                setTimeout(() => {
+                    btn.classList.replace('bg-blue-600', 'bg-green-600');
+                    btn.classList.replace('hover:bg-blue-700', 'hover:bg-green-700');
+                    btn.innerHTML = originalHTML;
+                }, 3000);
+
+            } catch (err) {
+                console.error('Gagal menyalin:', err);
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Gagal Menyalin';
+                showToast('Gagal menyalin kode. Pastikan browser mengizinkan akses Clipboard.', 'error');
+                
+                setTimeout(() => btn.innerHTML = originalHTML, 3000);
+            }
         });
 
         // --- 7. EVENT LISTENERS ---
@@ -627,7 +648,7 @@
             state.todos.push({ id: Date.now(), date: state.selectedDate, title, start, end });
             el.todoForm.reset();
             updateUI();
-            showToast('Rencana To-Do ditambahkan (Jangan lupa Save ke HTML)');
+            showToast('Rencana To-Do ditambahkan');
         });
 
         // Delete Todo
@@ -649,7 +670,7 @@
             state.shifts.push({ id: Date.now(), date: state.selectedDate, status: document.getElementById('shift-status').value, start, end, durationMs });
             el.shiftForm.reset();
             updateUI();
-            showToast('Sesi ditambahkan (Jangan lupa Save ke HTML)');
+            showToast('Sesi ditambahkan');
         });
 
         el.photoInput.addEventListener('change', (e) => {
@@ -688,12 +709,12 @@
                 if(idx > -1) {
                     if(!taskData.file) taskData.file = state.tasks[idx].file;
                     state.tasks[idx] = { ...state.tasks[idx], ...taskData };
-                    showToast('Tugas diupdate (Jangan lupa Save ke HTML)');
+                    showToast('Tugas diupdate');
                 }
                 cancelEditMode();
             } else {
                 state.tasks.push({ id: Date.now(), ...taskData });
-                showToast('Pekerjaan disimpan (Jangan lupa Save ke HTML)');
+                showToast('Pekerjaan disimpan');
             }
 
             el.taskForm.reset();
@@ -747,7 +768,7 @@
                 modalReport.classList.remove('hidden');
                 setTimeout(() => { modalReport.classList.remove('opacity-0'); document.getElementById('modal-report-content').classList.remove('scale-95'); }, 10);
             } else {
-                showToast('Syarat 7 Jam Terpenuhi! Silakan "Simpan Permanen ke HTML".');
+                showToast('Syarat 7 Jam Terpenuhi! Silakan "Salin Source Code".');
             }
         });
 
@@ -768,7 +789,7 @@
             document.getElementById('eod-report-text').value = '';
             document.getElementById('btn-cancel-report').click();
             updateUI();
-            showToast('Laporan disimpan. Jangan lupa klik "Simpan Permanen ke HTML"');
+            showToast('Laporan disimpan. Jangan lupa klik "Salin Source Code"');
         });
 
         const modalLogin = document.getElementById('modal-login');
