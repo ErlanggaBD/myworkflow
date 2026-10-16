@@ -29,7 +29,7 @@
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
     <script id="app-data" type="application/json">
-    {"shifts":[{"id":1792145211248,"date":"2026-10-16","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"","file":null,"photo":null}],"todos":[]}
+    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"","file":null,"photo":null}],"todos":[]}
     </script>
 
     <!-- Navigation -->
@@ -41,7 +41,7 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">17.09.39</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">17.15.28</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
                         <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="mt-4 md:mt-0 flex flex-col bg-white/20 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/30 text-center">
                             <p class="text-xs text-blue-100 uppercase tracking-wider font-semibold mb-1">Total Jam Tercatat</p>
-                            <p id="public-total-hours" class="font-bold text-2xl text-white">13 Jam 4 Menit</p>
+                            <p id="public-total-hours" class="font-bold text-2xl text-white">6 Jam 4 Menit</p>
                         </div>
                     </div>
                     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10 blur-3xl"></div>
@@ -90,13 +90,6 @@
                         <h3 class="font-bold text-gray-900 text-sm">WFO</h3>
                         <time class="block mb-1 text-xs font-normal leading-none text-gray-500"><i class="far fa-clock mr-1"></i> 10:00 - 16:04</time>
                         <p class="text-xs text-gray-500">Durasi: 6 Jam 4 Menit</p>
-                    </li>
-                
-                    <li class="mb-5 ml-6 relative">
-                        <span class="absolute flex items-center justify-center w-4 h-4 rounded-full -left-[33px] ring-4 ring-white bg-green-500"></span>
-                        <h3 class="font-bold text-gray-900 text-sm">WFO</h3>
-                        <time class="block mb-1 text-xs font-normal leading-none text-gray-500"><i class="far fa-clock mr-1"></i> 14:00 - 21:00</time>
-                        <p class="text-xs text-gray-500">Durasi: 7 Jam 0 Menit</p>
                     </li>
                 </ul>
                         </div>
@@ -198,14 +191,6 @@
                             <button onclick="deleteShift(1792145260512)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
                         </div>
                     </li>
-                
-                    <li class="flex justify-between bg-white p-2 rounded border border-gray-100 mb-1">
-                        <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
-                        <div class="flex items-center">
-                            <span class="text-gray-500 font-mono text-xs mr-3">14:00 - 21:00</span>
-                            <button onclick="deleteShift(1792145211248)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
-                        </div>
-                    </li>
                 </ul>
                             </div>
                         </div>
@@ -246,12 +231,12 @@
                         <!-- Admin: Task Form -->
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                             <div class="flex justify-between items-center mb-5 border-b pb-2">
-                                <h2 class="text-md font-bold text-gray-800" id="form-task-title"><i class="fas fa-edit text-blue-500 mr-2"></i>Input Pekerjaan Hari Ini</h2>
+                                <h2 class="text-md font-bold text-gray-800" id="form-task-title"><i class="fas fa-edit text-blue-500 mr-2"></i>Input Pekerjaan</h2>
                                 <button id="btn-cancel-edit" class="text-xs bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded hidden">Batal Edit</button>
                             </div>
                             
                             <form id="task-form" class="space-y-4">
-                                <input type="hidden" id="task-id">
+                                <input type="hidden" id="task-id" value="1792145376950">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Judul Pekerjaan <span class="text-red-500">*</span></label>
@@ -290,9 +275,7 @@
                                 </div>
                                 
                                 <div class="mt-5 flex justify-end border-t pt-4">
-                                    <button type="submit" id="btn-submit-task" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md">
-                                        <i class="fas fa-save mr-2"></i> Simpan Inputan Pekerjaan
-                                    </button>
+                                    <button type="submit" id="btn-submit-task" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md"><i class="fas fa-save mr-2"></i> Simpan Inputan Pekerjaan</button>
                                 </div>
                             </form>
                         </div>
@@ -384,9 +367,9 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none">
+    <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none translate-y-20 opacity-0">
         <i id="toast-icon" class="fas fa-check-circle text-green-400 mr-3 text-lg"></i>
-        <span id="toast-msg" class="font-medium text-sm">Inputan pekerjaan ditambahkan ke daftar.</span>
+        <span id="toast-msg" class="font-medium text-sm">Login berhasil!</span>
     </div>
 
     <script>
@@ -856,6 +839,8 @@
 
         updateUI();
     </script>
+
+
 
 
 </body>
