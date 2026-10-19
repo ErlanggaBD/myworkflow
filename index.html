@@ -29,7 +29,7 @@
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
     <script id="app-data" type="application/json">
-    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":null,"photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
+    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"18:00","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":"Panduan-Operator-ATG-6.1.pdf","photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
     </script>
 
     <!-- Navigation -->
@@ -41,7 +41,7 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">14.01.45</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">17.24.05</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
                         <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
@@ -129,7 +129,7 @@
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
                             <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Senin, 19 Oktober 2026
                         </span>
-                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (11:00)</span>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-check-circle mr-1"></i>Selesai (11:00 - 18:00)</span>
                     </div>
 
                     <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Membuat guide Book ATG untuk user Metrologi</h3>
@@ -137,7 +137,7 @@
                     
                     <div class="flex flex-wrap gap-2">
                         
-                        
+                        <span class="inline-flex items-center text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md border border-blue-100"><i class="fas fa-file-archive mr-1.5"></i> Panduan-Operator-ATG-6.1.pdf</span>
                     </div>
                     
                 </div>
@@ -329,7 +329,7 @@
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
                             <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Senin, 19 Oktober 2026
                         </span>
-                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (11:00)</span>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-check-circle mr-1"></i>Selesai (11:00 - 18:00)</span>
                     </div>
 
                     <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Membuat guide Book ATG untuk user Metrologi</h3>
@@ -337,7 +337,7 @@
                     
                     <div class="flex flex-wrap gap-2">
                         
-                        
+                        <span class="inline-flex items-center text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md border border-blue-100"><i class="fas fa-file-archive mr-1.5"></i> Panduan-Operator-ATG-6.1.pdf</span>
                     </div>
                     
                 </div>
@@ -406,7 +406,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none">
         <i id="toast-icon" class="fas fa-check-circle text-green-400 mr-3 text-lg"></i>
-        <span id="toast-msg" class="font-medium text-sm">Rencana Besok ditambahkan ke daftar.</span>
+        <span id="toast-msg" class="font-medium text-sm">Tugas berhasil diupdate.</span>
     </div>
 
     <script>
@@ -895,6 +895,8 @@
 
         updateUI();
     </script>
+
+
 
 
 
