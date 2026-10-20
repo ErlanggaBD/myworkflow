@@ -29,7 +29,7 @@
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
     <script id="app-data" type="application/json">
-    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"18:00","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":"Panduan-Operator-ATG-6.1.pdf","photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
+    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792468117151,"date":"2026-10-20","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"18:00","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":"Panduan-Operator-ATG-6.1.pdf","photo":null},{"id":1792468237211,"date":"2026-10-20","time":"09:30","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi","desc":"Melakukan finalisasi dan pengecekan siftware dan hardware ATG","github":"","file":null,"photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
     </script>
 
     <!-- Navigation -->
@@ -41,7 +41,7 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">17.24.05</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">10.50.39</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
                         <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
@@ -66,7 +66,7 @@
                             <p class="text-blue-100 mb-3">Pemantauan progres dan linimasa kerja harian.</p>
                             <div class="inline-flex items-center bg-white/20 px-3 py-1.5 rounded-full text-sm font-medium border border-white/30 backdrop-blur-sm">
                                 <i class="far fa-calendar-check mr-2"></i>
-                                <span id="public-date-display">Senin, 19 Oktober 2026</span>
+                                <span id="public-date-display">Selasa, 20 Oktober 2026</span>
                             </div>
                         </div>
                         <div class="mt-4 md:mt-0 flex flex-col bg-white/20 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/30 text-center">
@@ -101,14 +101,9 @@
                         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                             <div class="p-5 border-b border-gray-100 bg-indigo-50 flex justify-between items-center">
                                 <h2 class="text-md font-bold text-indigo-900"><i class="fas fa-calendar-day text-indigo-500 mr-2"></i>Rencana Besok (To-Do)</h2>
-                                <span id="public-todo-count" class="bg-indigo-200 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">1 Rencana</span>
+                                <span id="public-todo-count" class="bg-indigo-200 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">0 Rencana</span>
                             </div>
-                            <div id="public-todo-container" class="divide-y divide-gray-100">
-                <div class="p-4 hover:bg-indigo-50/50 transition-colors border-b border-gray-100 last:border-0 flex items-start">
-                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap"><i class="far fa-clock mr-1"></i>09:00 - 12:00</span>
-                    <h3 class="text-sm font-semibold text-gray-800 mt-0.5">Visit ke Metrologi untuk BAST dan brief manual book</h3>
-                </div>
-            </div>
+                            <div id="public-todo-container" class="divide-y divide-gray-100"><div class="p-6 text-center text-gray-400"><p class="text-sm italic">Belum ada target rencana hari esok dicatat.</p></div></div>
                         </div>
                     </div>
 
@@ -127,17 +122,17 @@
                     <!-- Informasi Tanggal, Hari & Status Jam Pengerjaan di dalam Card -->
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pr-14">
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
-                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Senin, 19 Oktober 2026
+                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Selasa, 20 Oktober 2026
                         </span>
-                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-check-circle mr-1"></i>Selesai (11:00 - 18:00)</span>
+                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (09:30)</span>
                     </div>
 
-                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Membuat guide Book ATG untuk user Metrologi</h3>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button</p>
+                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi</h3>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">Melakukan finalisasi dan pengecekan siftware dan hardware ATG</p>
                     
                     <div class="flex flex-wrap gap-2">
                         
-                        <span class="inline-flex items-center text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md border border-blue-100"><i class="fas fa-file-archive mr-1.5"></i> Panduan-Operator-ATG-6.1.pdf</span>
+                        
                     </div>
                     
                 </div>
@@ -204,7 +199,7 @@
                         <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
                         <div class="flex items-center">
                             <span class="text-gray-500 font-mono text-xs mr-3">14:00 - 21:00</span>
-                            <button onclick="deleteShift(1792386382694)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                            <button onclick="deleteShift(1792468117151)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
                         </div>
                     </li>
                 </ul>
@@ -237,15 +232,7 @@
                             
                             <div class="flex-grow overflow-auto bg-indigo-50/50 rounded-lg p-3 border border-indigo-100 max-h-48">
                                 <p class="text-xs font-semibold text-indigo-800 mb-2 uppercase tracking-wide">Daftar Rencana</p>
-                                <ul id="admin-todo-container" class="space-y-2 text-sm">
-                <li class="flex justify-between items-center bg-white p-2 rounded border border-indigo-100 mb-1">
-                    <span class="font-medium text-gray-800 truncate pr-2"><i class="fas fa-caret-right text-indigo-400 mr-2"></i>Visit ke Metrologi untuk BAST dan brief manual book</span>
-                    <div class="flex items-center shrink-0">
-                        <span class="text-gray-500 font-mono text-xs mr-3">09:00 - 12:00</span>
-                        <button onclick="deleteTodo(1792393303307)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
-                    </div>
-                </li>
-            </ul>
+                                <ul id="admin-todo-container" class="space-y-2 text-sm"><li class="text-gray-400 italic text-center p-2">Kosong</li></ul>
                             </div>
                         </div>
                     </div>
@@ -319,25 +306,25 @@
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
                         <div class="absolute top-5 right-5 space-x-2">
-                            <button onclick="editTask(1792387471469)" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
-                            <button onclick="deleteTask(1792387471469)" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+                            <button onclick="editTask(1792468237211)" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteTask(1792468237211)" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     
                     
                     <!-- Informasi Tanggal, Hari & Status Jam Pengerjaan di dalam Card -->
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pr-14">
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
-                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Senin, 19 Oktober 2026
+                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Selasa, 20 Oktober 2026
                         </span>
-                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-check-circle mr-1"></i>Selesai (11:00 - 18:00)</span>
+                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (09:30)</span>
                     </div>
 
-                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Membuat guide Book ATG untuk user Metrologi</h3>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button</p>
+                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi</h3>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">Melakukan finalisasi dan pengecekan siftware dan hardware ATG</p>
                     
                     <div class="flex flex-wrap gap-2">
                         
-                        <span class="inline-flex items-center text-xs font-medium bg-blue-50 text-blue-700 px-3 py-1.5 rounded-md border border-blue-100"><i class="fas fa-file-archive mr-1.5"></i> Panduan-Operator-ATG-6.1.pdf</span>
+                        
                     </div>
                     
                 </div>
@@ -406,7 +393,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none">
         <i id="toast-icon" class="fas fa-check-circle text-green-400 mr-3 text-lg"></i>
-        <span id="toast-msg" class="font-medium text-sm">Tugas berhasil diupdate.</span>
+        <span id="toast-msg" class="font-medium text-sm">Inputan pekerjaan ditambahkan ke daftar.</span>
     </div>
 
     <script>
@@ -895,6 +882,8 @@
 
         updateUI();
     </script>
+
+
 
 
 
