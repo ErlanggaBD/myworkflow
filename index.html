@@ -29,7 +29,7 @@
 
     <!-- TEMPAT PENYIMPANAN DATA DI DALAM SOURCE CODE (JSON FORMAT) -->
     <script id="app-data" type="application/json">
-    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792468117151,"date":"2026-10-20","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792557610058,"date":"2026-10-21","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"18:00","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":"Panduan-Operator-ATG-6.1.pdf","photo":null},{"id":1792468237211,"date":"2026-10-20","time":"09:30","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi","desc":"Melakukan finalisasi dan pengecekan siftware dan hardware ATG","github":"","file":null,"photo":null},{"id":1792557643201,"date":"2026-10-21","time":"09:00","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi","desc":" ","github":"","file":null,"photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
+    {"shifts":[{"id":1792145260512,"date":"2026-10-16","status":"WFO","start":"10:00","end":"16:04","durationMs":21840000},{"id":1792386382694,"date":"2026-10-19","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792468117151,"date":"2026-10-20","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792557610058,"date":"2026-10-21","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000},{"id":1792658547778,"date":"2026-10-22","status":"WFO","start":"14:00","end":"21:00","durationMs":25200000}],"tasks":[{"id":1792145376950,"date":"2026-10-16","time":"17:00","title":"Update firmware ATG kontroller dan membuat guide book ATG","desc":"Setelah instalasi kontroller UDP di metrologi tadi siang, sekarang saya lanjut mengerjakan guide book untuk operator/user ATG di moetrologi","github":"https://github.com/ErlanggaBD/ATG-6.1.git","file":null,"photo":null,"endTime":"14:00"},{"id":1792387471469,"date":"2026-10-19","time":"11:00","endTime":"18:00","title":"Membuat guide Book ATG untuk user Metrologi","desc":"Membuat guide Book ATG untuk user Metrologi dalam bentuk PDF, termasuk panduan menggunakan kontroler push button","github":"","file":"Panduan-Operator-ATG-6.1.pdf","photo":null},{"id":1792468237211,"date":"2026-10-20","time":"09:30","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi","desc":"Melakukan finalisasi dan pengecekan siftware dan hardware ATG","github":"","file":null,"photo":null},{"id":1792557643201,"date":"2026-10-21","time":"09:00","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi","desc":" ","github":"","file":null,"photo":null},{"id":1792658638325,"date":"2026-10-22","time":"10:00","endTime":"","title":"Finalisasi software & kontroller ATG di metrologi untuk memenuhi kebutuhan fitur tambahan yang diminta user","desc":"uji coba desktop app versi terbaru dengan koreksi dan fitur tambahan yang diminta user","github":"","file":null,"photo":null}],"todos":[{"id":1792393303307,"date":"2026-10-19","title":"Visit ke Metrologi untuk BAST dan brief manual book","start":"09:00","end":"12:00"}]}
     </script>
 
     <!-- Navigation -->
@@ -41,7 +41,7 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">ErlanggaWorkflow<span class="text-blue-600">.</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">11.40.45</span>
+                    <span id="nav-clock" class="text-sm font-medium text-gray-500 hidden md:block">15.44.13</span>
                     <button id="btn-login-modal" class="bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200">
                         <i class="fas fa-lock mr-2"></i>Admin Login
                     </button>
@@ -66,7 +66,7 @@
                             <p class="text-blue-100 mb-3">Pemantauan progres dan linimasa kerja harian.</p>
                             <div class="inline-flex items-center bg-white/20 px-3 py-1.5 rounded-full text-sm font-medium border border-white/30 backdrop-blur-sm">
                                 <i class="far fa-calendar-check mr-2"></i>
-                                <span id="public-date-display">Rabu, 21 Oktober 2026</span>
+                                <span id="public-date-display">Kamis, 22 Oktober 2026</span>
                             </div>
                         </div>
                         <div class="mt-4 md:mt-0 flex flex-col bg-white/20 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/30 text-center">
@@ -122,13 +122,13 @@
                     <!-- Informasi Tanggal, Hari & Status Jam Pengerjaan di dalam Card -->
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pr-14">
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
-                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Rabu, 21 Oktober 2026
+                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Kamis, 22 Oktober 2026
                         </span>
-                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (09:00)</span>
+                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (10:00)</span>
                     </div>
 
-                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi</h3>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line"> </p>
+                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi untuk memenuhi kebutuhan fitur tambahan yang diminta user</h3>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">uji coba desktop app versi terbaru dengan koreksi dan fitur tambahan yang diminta user</p>
                     
                     <div class="flex flex-wrap gap-2">
                         
@@ -199,7 +199,7 @@
                         <span><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>WFO</span>
                         <div class="flex items-center">
                             <span class="text-gray-500 font-mono text-xs mr-3">14:00 - 21:00</span>
-                            <button onclick="deleteShift(1792557610058)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+                            <button onclick="deleteShift(1792658547778)" class="text-red-400 hover:text-red-600"><i class="fas fa-times"></i></button>
                         </div>
                     </li>
                 </ul>
@@ -306,21 +306,21 @@
                 <div class="p-5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 relative">
                     
                         <div class="absolute top-5 right-5 space-x-2">
-                            <button onclick="editTask(1792557643201)" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
-                            <button onclick="deleteTask(1792557643201)" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+                            <button onclick="editTask(1792658638325)" class="text-blue-400 hover:text-blue-600"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteTask(1792658638325)" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     
                     
                     <!-- Informasi Tanggal, Hari & Status Jam Pengerjaan di dalam Card -->
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2 pr-14">
                         <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
-                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Rabu, 21 Oktober 2026
+                            <i class="far fa-calendar-alt mr-1.5 text-blue-500"></i>Kamis, 22 Oktober 2026
                         </span>
-                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (09:00)</span>
+                        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-md whitespace-nowrap"><i class="fas fa-sync fa-spin mr-1"></i>On Progress (10:00)</span>
                     </div>
 
-                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi</h3>
-                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line"> </p>
+                    <h3 class="text-md font-bold text-gray-900 leading-tight mb-2">Finalisasi software &amp; kontroller ATG di metrologi untuk memenuhi kebutuhan fitur tambahan yang diminta user</h3>
+                    <p class="text-sm text-gray-600 mb-3 whitespace-pre-line">uji coba desktop app versi terbaru dengan koreksi dan fitur tambahan yang diminta user</p>
                     
                     <div class="flex flex-wrap gap-2">
                         
@@ -339,8 +339,8 @@
     <!-- ================= MODALS ================= -->
     
     <!-- Code Output Modal (POPUP KODE VSCODE) -->
-    <div id="modal-sourcecode" class="fixed inset-0 bg-black/80 z-[70] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm p-4">
-        <div class="bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-4xl h-[85vh] flex flex-col transform scale-95 transition-transform duration-300" id="modal-sourcecode-content">
+    <div id="modal-sourcecode" class="fixed inset-0 bg-black/80 z-[70] flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm p-4 opacity-0 hidden">
+        <div class="bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-4xl h-[85vh] flex flex-col transform transition-transform duration-300 scale-95" id="modal-sourcecode-content">
             <div class="flex justify-between items-center mb-3">
                 <h3 class="text-xl font-bold text-white"><i class="fas fa-code text-blue-400 mr-2"></i>Source Code Terupdate</h3>
                 <button id="btn-close-sourcecode" class="text-gray-400 hover:text-white"><i class="fas fa-times text-2xl"></i></button>
@@ -358,9 +358,7 @@
                 <textarea id="sourcecode-output" class="w-full h-full bg-transparent text-green-400 font-mono text-sm p-4 resize-none focus:outline-none whitespace-pre" readonly=""></textarea>
             </div>
             <div class="mt-4 flex space-x-3">
-                <button id="btn-copy-sourcecode" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition-colors flex justify-center items-center shadow-lg">
-                    <i class="fas fa-copy mr-2"></i> Copy Code
-                </button>
+                <button id="btn-copy-sourcecode" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition-colors flex justify-center items-center shadow-lg"><i class="fas fa-copy mr-2"></i> Copy Code</button>
                 <button id="btn-done-sourcecode" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3.5 px-8 rounded-xl transition-colors">
                     Tutup
                 </button>
@@ -393,7 +391,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 right-5 transform transition-all duration-300 z-[60] flex items-center bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg pointer-events-none">
         <i id="toast-icon" class="fas fa-check-circle text-green-400 mr-3 text-lg"></i>
-        <span id="toast-msg" class="font-medium text-sm">Inputan pekerjaan ditambahkan ke daftar.</span>
+        <span id="toast-msg" class="font-medium text-sm">Code dicopy! Silakan buka VS Code dan Ctrl+V</span>
     </div>
 
     <script>
@@ -882,6 +880,8 @@
 
         updateUI();
     </script>
+
+
 
 
 
